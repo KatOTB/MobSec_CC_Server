@@ -13,7 +13,7 @@ def index():
 @socketio.on('send_json')
 def handle_json(data):
     print(f'Received JSON: {data}')
-    # Modify the received data and send a response back
+    # Modify the received data and send a response backy
     response = {
         "status": "success",
         "received_data": data,
