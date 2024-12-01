@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket JSON Test</title>
+    <script src="https://cdn.socket.io/4.5.1/socket.io.min.js"></script>
+  </head>
+  <body>
+    <h1>WebSocket JSON Test</h1>
+
+    <div>
+      <label for="key">Key: </label>
+      <input id="key" type="text" placeholder="Enter key" />
+    </div>
+    <div>
+      <label for="value">Value: </label>
+      <input id="value" type="text" placeholder="Enter value" />
+    </div>
+    <button onclick="sendJSON()">Send JSON</button>
+
+    <h3>Server Response:</h3>
+    <pre id="response"></pre>
+
+    <script>
+      // Connect to the WebSocket server
+      const socket = io();
+
+      // Listen for the JSON response from the server
+      socket.on("receive_json", function (data) {
+        document.getElementById("response").textContent = JSON.stringify(
+          data,
+          null,
+          2
+        );
+      });
+
+      // Send JSON data to the server
+      function sendJSON() {
+        const key = document.getElementById("key").value;
+        const value = document.getElementById("value").value;
+
+        const jsonData = {
+          key: key,
+          value: value,
+        };
+
+        socket.emit("send_json", jsonData);
+      }
+    </script>
+  </body>
+</html>

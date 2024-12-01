@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask instance and config files
+instance/
+config.py
+.env
+*.env
+
+# Virtual environment directory
+venv/
+ENV/
+
+# Flask log files
+*.log
+
+# Database files
+*.sqlite3
+*.db
+*.sql
+
+# Pytest / testing artifacts
+.cache/
+.tox/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Static files cache
+static/
+*.map
+
+# Flask-Migrate (Alembic) migration files
+migrations/
+
+# Build and distribution directories
+build/
+dist/
+*.
